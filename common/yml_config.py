@@ -11,11 +11,13 @@ class YmlConfig:
         with open(get_project_path() + sep(["config", "environment.yml"], sep_before=True), "r",
                   encoding="utf-8") as files:
             self.env = yaml.load(files, Loader=yaml.FullLoader)
-            print(self.env)
 
-    def get_username_password(self):
-        return self.env["username"], self.env["password"]
+    def get_username_password(self, user):
+        return self.env["user"][user]["username"], self.env["user"][user]["password"]
+
+    def get_url(self):
+        return self.env["url"]
 
 
 if __name__ == '__main__':
-    YmlConfig().get_username_password()
+    print(YmlConfig().get_username_password("jay"))

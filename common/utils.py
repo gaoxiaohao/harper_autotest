@@ -21,6 +21,12 @@ def sep(path, sep_before=False, sep_after=False):
     return all_path
 
 
+def get_image_path(image_name):
+    image_path = get_project_path() + sep(["images", image_name], sep_before=True)
+    return image_path
+
+
 if __name__ == '__main__':
     # print(get_project_path())
-    print(sep(["config", "environment.yml"], sep_before=True))
+    # print(sep(["config", "environment.yml"], sep_before=True))
+    print(get_image_path("00004-7.png"))
