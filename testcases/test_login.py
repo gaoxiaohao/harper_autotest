@@ -2,13 +2,20 @@
 # @Author: gxh
 from time import sleep
 
-from config.driver_config import DriverConfig
+import allure
+import pytest
+
+from common.report_add_images import add_images_report
 from page.login_page import LoginPage
 
 
 class TestLogin:
-    def test_login(self):
-        driver = DriverConfig().driver_config()
-        LoginPage().login(driver, "jay")
-        sleep(2)
-        driver.quit()
+    @pytest.mark.login
+    @allure.feature("登录")
+    @allure.description("登录")
+    def test_login(self, driver):
+        """使用错误账号登录"""
+        with allure.step("登录"):
+            LoginPage().login(driver, "gxh")
+            sleep(2)
+            add_images_report(driver, "登录")

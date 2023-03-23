@@ -29,4 +29,4 @@ def get_image_path(image_name):
 if __name__ == '__main__':
     # print(get_project_path())
     # print(sep(["config", "environment.yml"], sep_before=True))
-    print(get_image_path("00004-7.png"))
+    print(get_image_path("search.png"))

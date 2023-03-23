@@ -9,7 +9,5 @@ class LoginBase:
     def login_button(self, button_span):
         return "//span[text()='" + button_span + "']/parent::button"
 
-
-if __name__ == '__main__':
-    print(LoginBase().login_input("用户名"))
-    print(LoginBase().login_button("登录"))
+    def login_success(self):
+        return "//p[text()='登录成功']"

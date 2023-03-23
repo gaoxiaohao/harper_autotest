@@ -5,9 +5,9 @@ import time
 from selenium.common.exceptions import ElementNotVisibleException, WebDriverException, NoSuchElementException, \
     StaleElementReferenceException
 from selenium.webdriver.common.keys import Keys
-
+from common.utils import get_project_path, sep
 from common.yml_config import YmlConfig
-
+from common.find_image import FindImage
 
 class ObjectMap:
     # 获取基础地址
@@ -66,7 +66,7 @@ class ObjectMap:
                 time.sleep(0.1)
         raise Exception("打开页面未在%s秒加载完成" % timeout)
 
-    def element_disappear(self, driver, locate_type, locator_expression, timeout=30):
+    def element_disappear(self, driver, locate_type, locator_expression, timeout=15):
         """
         等待页面元素消失
         :param driver: 浏览器驱动
@@ -92,7 +92,7 @@ class ObjectMap:
         else:
             pass
 
-    def element_appear(self, driver, locate_type, locator_expression, timeout=30):
+    def element_appear(self, driver, locate_type, locator_expression, timeout=15):
         """
         等待元素出现
         :param driver: 浏览器驱动
@@ -170,7 +170,7 @@ class ObjectMap:
     def element_fill_value(self, driver,
                            locate_type,
                            locator_expression,
-                           fill_value, timeout=20):
+                           fill_value, timeout=15):
         """
                 元素填值
                 :param driver:  浏览器驱动
@@ -279,3 +279,48 @@ class ObjectMap:
         """
         element = self.get_element(driver, locate_type, locator_expression)
         return element.send_keys(file_path)
+
+    def switch_window_latest_handle(self, driver):
+        """
+        切换到最新的窗口
+        :param driver:
+        :return:
+        """
+        window_handles = driver.window_handles
+        driver.switch_to.window(window_handles[-1])
+
+    def switch_into_iframe(self, driver, locate_iframe_type, locator_iframe_expression):
+        """
+        进入iframe
+        :param driver:
+        :param locate_iframe_type:  定位iframe方式
+        :param locator_iframe_expression:  定位iframe表达式
+        :return:
+        """
+        iframe = self.get_element(driver, locate_iframe_type, locator_iframe_expression)
+        driver.switch_to.frame(iframe)
+
+    def switch_from_iframe_to_content(self, driver):
+        """
+        切换回主体页面
+        :param driver:
+        :return:
+        """
+        driver.switch_to.parent_frame()
+
+    def find_image_in_source(self, driver, image_name):
+        """
+        截图，并查找图片
+        :param driver:
+        :param image_name:
+        :return:
+        """
+        # 截图后保存的路径
+        source_path = get_project_path() + sep(["images", "source_image", image_name], sep_before=True)
+        # 需要查找的图片路径
+        search_path = get_project_path() + sep(["images", "assert_image", image_name], sep_before=True)
+        # 截图并保存
+        driver.get_screenshot_as_file(source_path)
+        time.sleep(2)
+        confidence = FindImage().get_confidence(source_path, search_path)
+        return confidence
