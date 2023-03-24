@@ -1,5 +1,7 @@
 # @Time: 2023/3/21 16:38
 # @Author: gxh
+import datetime
+import os.path
 import time
 
 from selenium.common.exceptions import ElementNotVisibleException, WebDriverException, NoSuchElementException, \
@@ -8,6 +10,7 @@ from selenium.webdriver.common.keys import Keys
 from common.utils import get_project_path, sep
 from common.yml_config import YmlConfig
 from common.find_image import FindImage
+
 
 class ObjectMap:
     # 获取基础地址
@@ -324,3 +327,19 @@ class ObjectMap:
         time.sleep(2)
         confidence = FindImage().get_confidence(source_path, search_path)
         return confidence
+
+    def element_screenshot(self, driver, locate_type, locator_expression):
+        """
+        给元素截图
+        :param driver:
+        :param locate_type:
+        :param locator_expression:
+        :return:
+        """
+        ele_name = datetime.datetime.now().strftime("%Y%m%d%H%M%S") + ".png"
+        ele_image_dir_path = get_project_path() + sep(["images", "ele_image"], True, True)
+        if not os.path.exists(ele_image_dir_path):
+            os.makedirs(ele_image_dir_path)
+        ele_image_path = ele_image_dir_path + ele_name
+        self.get_element(driver, locate_type, locator_expression).screenshot(ele_image_path)
+        return ele_image_path

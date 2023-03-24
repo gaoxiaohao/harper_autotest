@@ -1,3 +1,0 @@
-[32mINFO    [0m 自动化测试:login_page.py:13 输入用户名为：gxh
-[32mINFO    [0m 自动化测试:login_page.py:13 输入密码为：123456
-[32mINFO    [0m 自动化测试:login_page.py:19 点击登录

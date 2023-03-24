@@ -1,0 +1,6 @@
+2023-03-23 18:06:33 - login_page.py - login_page - login - 45 - INFO -需要验证码
+2023-03-23 18:06:33 - login_page.py - login_page - login - 51 - INFO -验证码是8a7q
+2023-03-23 18:06:33 - login_page.py - login_page - login_input_value - 25 - INFO -输入请输入验证码为：8a7q
+2023-03-23 18:06:35 - login_page.py - login_page - login_input_value - 25 - INFO -输入用户名为：周杰伦
+2023-03-23 18:06:36 - login_page.py - login_page - login_input_value - 25 - INFO -输入密码为：123456
+2023-03-23 18:06:36 - login_page.py - login_page - login_click - 37 - INFO -点击登录

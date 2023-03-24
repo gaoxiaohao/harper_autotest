@@ -1,8 +1,10 @@
 # @Time: 2023/3/22 22:33
 # @Author: gxh
 import pytest
+import yaml
 
 from common.report_add_images import add_images_report
+from common.utils import get_project_path, sep
 from config.driver_config import DriverConfig
 
 
@@ -25,3 +27,20 @@ def pytest_runtest_makereport(item, call):
         if report.failed:
             # 失败了截图
             add_images_report(driver, "失败截图", False)
+
+
+def get_data():
+    """
+    读取yml文件数据
+    :return:
+    """
+    yml_path = get_project_path() + sep(["data", "testcase_data.yml"], sep_before=True)
+    with open(yml_path, encoding='utf-8') as f:
+        data = yaml.safe_load(f)
+        return data
+
+
+case_data = get_data()
+
+if __name__ == '__main__':
+    print(case_data)

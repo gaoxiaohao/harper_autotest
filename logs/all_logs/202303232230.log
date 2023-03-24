@@ -1,0 +1,8 @@
+2023-03-23 22:31:06 - login_page.py - login_page - login_input_value - 25 - INFO -输入用户名为：周杰伦
+2023-03-23 22:31:06 - login_page.py - login_page - login_input_value - 25 - INFO -输入密码为：123456
+2023-03-23 22:31:06 - login_page.py - login_page - login_click - 37 - INFO -点击登录
+2023-03-23 22:31:10 - test_add_goods.py - test_add_goods - test_add_goods - 26 - INFO -[{'goods_title': '谷歌'}, {'goods_details': 'google'}, {'goods_num': 2}, {'goods_images': '[ search.png, 00005-998.png ]'}, {'goods_price': 400}, {'goods_status': '上架'}, {'goods_submit': '重置'}]
+2023-03-23 22:31:20 - login_page.py - login_page - login_input_value - 25 - INFO -输入用户名为：周杰伦
+2023-03-23 22:31:21 - login_page.py - login_page - login_input_value - 25 - INFO -输入密码为：123456
+2023-03-23 22:31:21 - login_page.py - login_page - login_click - 37 - INFO -点击登录
+2023-03-23 22:31:25 - test_add_goods.py - test_add_goods - test_add_goods - 26 - INFO -[{'goods_title': '谷歌'}, {'goods_details': 'google'}, {'goods_num': 2}, {'goods_images': '[ search.png, 00005-998.png ]'}, {'goods_price': 400}, {'goods_status': '上架'}, {'goods_submit': '提交'}]

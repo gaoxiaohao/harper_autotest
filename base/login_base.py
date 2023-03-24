@@ -11,3 +11,12 @@ class LoginBase:
 
     def login_success(self):
         return "//p[text()='登录成功']"
+
+    def is_identify_code(self):
+        return "//span[text()='是否需要验证码']"
+
+    def login_input_code(self):
+        return "//input[@placeholder='请输入验证码']"
+
+    def identify_code_pic(self):
+        return "//img[@class='el-image__inner']"

@@ -1,0 +1,3 @@
+goods_info_list:
+  - [{ goods_title: "谷歌",goods_details: "google",goods_num: 2,goods_images: ["00005-998.png","00005-998.png"],goods_price: 400,goods_status: "上架",goods_submit: "重置" }]
+  - [{ goods_title: "谷歌",goods_details: "google",goods_num: 2,goods_images: ["00005-998.png","00005-998.png"],goods_price: 400,goods_status: "上架",goods_submit: "提交" }]
