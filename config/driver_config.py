@@ -30,9 +30,9 @@ class DriverConfig:
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         # 实例化浏览器驱动
         driver = webdriver.Chrome(
-            Service(ChromeDriverManager(url="https://registry.npmmirror.com/-/binary/chromedriver",
-                                        latest_release_url="https://registry.npmmirror.com/-/binary/chromedriver/LATEST_RELEASE",
-                                        cache_valid_range=365).install()),
+            ChromeDriverManager(url="https://registry.npmmirror.com/-/binary/chromedriver",
+                                latest_release_url="https://registry.npmmirror.com/-/binary/chromedriver/LATEST_RELEASE",
+                                cache_valid_range=365).install(),
             options=options)
         # 隐形等待时间
         driver.implicitly_wait(3)
