@@ -27,9 +27,7 @@ class DriverConfig:
         # 去除“chrome正在受到自动测试软件的控制”
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         # 实例化浏览器驱动
-        driver = webdriver.Chrome(ChromeDriverManager(url="https://registry.npmmirror.com/-/binary/chromedriver",
-                                                      latest_release_url="https://registry.npmmirror.com/-/binary/chromedriver/LATEST_RELEASE",
-                                                      cache_valid_range=365).install(),
+        driver = webdriver.Chrome(ChromeDriverManager().install(),
                                   options=options)
         # 隐形等待时间
         driver.implicitly_wait(3)
