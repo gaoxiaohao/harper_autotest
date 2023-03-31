@@ -14,7 +14,7 @@ class DriverConfig:
         # 设置窗口大小
         options.add_argument("window-size=1920,1080")
         # 无头模式 无界面运行自动化
-        # options.add_argument("--headless")
+        options.add_argument("--headless")
         options.add_argument('--disable-blink-features=AutomationControlled')
         # 关闭硬件加速
         options.add_argument("--disable-gpu")
