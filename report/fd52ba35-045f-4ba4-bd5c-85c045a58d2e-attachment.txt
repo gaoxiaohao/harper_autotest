@@ -1,6 +1,0 @@
-[32mINFO    [0m 自动化测试:login_page.py:45 需要验证码
-[32mINFO    [0m 自动化测试:login_page.py:51 验证码是pd6v
-[32mINFO    [0m 自动化测试:login_page.py:25 输入请输入验证码为：pd6v
-[32mINFO    [0m 自动化测试:login_page.py:25 输入用户名为：周杰伦
-[32mINFO    [0m 自动化测试:login_page.py:25 输入密码为：123456
-[32mINFO    [0m 自动化测试:login_page.py:37 点击登录
