@@ -2,13 +2,14 @@
 # @Author: gxh
 import os.path
 
-
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 # 获取项目绝对路径
 def get_project_path():
     # 项目名称
-    project_name = "harper_autotest"
-    file_path = os.path.dirname(__file__)
-    return file_path[:file_path.find(project_name) + len(project_name)]
+    # project_name = "harper_autotest"
+    # file_path = os.path.dirname(__file__)
+    # return file_path[:file_path.find(project_name) + len(project_name)]
+    return BASE_PATH
 
 
 # 给路径添加分隔符
@@ -29,4 +30,4 @@ def get_image_path(image_name):
 if __name__ == '__main__':
     # print(get_project_path())
     # print(sep(["config", "environment.yml"], sep_before=True))
-    print(get_image_path("search.png"))
+    print(get_project_path())
