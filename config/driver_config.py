@@ -4,6 +4,7 @@
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from webdriver_manager.core.utils import ChromeType
+from selenium.webdriver.chrome.service import Service as ChromiumService
 
 
 class DriverConfig:
@@ -28,8 +29,9 @@ class DriverConfig:
         # 去除“chrome正在受到自动测试软件的控制”
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         # 实例化浏览器驱动
-        driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),
-                                  options=options)
+        driver = webdriver.Chrome(
+            service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),
+            options=options)
         # 隐形等待时间
         driver.implicitly_wait(3)
         # 删除所有cookies
