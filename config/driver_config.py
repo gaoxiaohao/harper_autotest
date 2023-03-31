@@ -3,8 +3,7 @@
 
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
-from webdriver_manager.core.utils import ChromeType
-from selenium.webdriver.chrome.service import Service as ChromiumService
+from selenium.webdriver.chrome.service import Service
 
 
 class DriverConfig:
@@ -16,6 +15,7 @@ class DriverConfig:
         options.add_argument("window-size=1920,1080")
         # 无头模式 无界面运行自动化
         options.add_argument("--headless")
+        options.add_argument('--disable-blink-features=AutomationControlled')
         # 关闭硬件加速
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
@@ -30,7 +30,7 @@ class DriverConfig:
         options.add_experimental_option("excludeSwitches", ["enable-automation"])
         # 实例化浏览器驱动
         driver = webdriver.Chrome(
-            service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),
+            Service(executable_path=ChromeDriverManager().install()),
             options=options)
         # 隐形等待时间
         driver.implicitly_wait(3)
